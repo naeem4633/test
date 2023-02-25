@@ -1,6 +1,7 @@
 <?php 
     include_once 'config.php';
     include_once 'TypeChecker.php';
+    include_once 'Redirect.php';
 
     class RequestHandler{
         public function sortAndSave($data){
@@ -19,6 +20,7 @@
                 $productController = new ProductController();
                 $productController->deleteItem($deleteNumber);
             }
-            header("location: ../public/index.php");
+            $redirect = new Redirect();
+            $redirect->redirectTo("../public/index.php");
         }
     }

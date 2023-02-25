@@ -1,13 +1,15 @@
 <?php 
+include_once 'Redirect.php';
 
 class ProductController extends Product
 {
     public function addItem($sku, $name, $price, $size, $weight, $height, $width, $length){
+        $redirect = new Redirect();
         if($this->checkItemExists($sku)){
-            header("location: ../public/addProduct.php?itemExists=1");
+            $redirect->redirectTo("../public/addProduct.php?itemExists=1");
         }else{
             $this->setItem($sku, $name, $price, $size, $weight, $height, $width, $length);
-            header("location: ../public/index.php");
+            $redirect->redirectTo("../public/index.php");
         }
     }
 
