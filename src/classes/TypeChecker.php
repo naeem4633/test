@@ -1,4 +1,5 @@
 <?php
+include_once 'Redirect.php';
     class TypeChecker{
         function getClassName($type){
             $typeArray = [
@@ -7,7 +8,10 @@
                 'book' => 'Book'
             ];
     
-            $className = $typeArray[$type];
+            if(!($className = $typeArray[$type])){
+                $redirect = new Redirect();
+                $redirect->redirectTo("../public/addProduct.php?typeEmpty=1");
+            }
             return $className;
         }
     }

@@ -51,6 +51,11 @@
 
         <div class="m-4 border border-light border-2 d-inline-block" style="width: 400px;">
             <div>
+                <?php
+                    if(isset($_GET['typeEmpty'])) {
+                        echo "<div class='alert alert-danger mb-2 rounded-0' style='width: 350px;'>Error! No type selected.</div>";
+                    }
+                ?>
                 <label class="fs-5 fw-semibold text-light ms-2" for="typeSwitcher">Type Switcher</label>
                 <button id="typeSwitcher" class="btn btn-secondary dropdown-toggle ms-2 border border-light border-2" type="button" data-bs-toggle="dropdown">
                   Select
